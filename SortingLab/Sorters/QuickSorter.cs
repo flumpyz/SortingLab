@@ -18,7 +18,7 @@ namespace SortingLab.Sorters
             var left = bottom;
             var middle = (right + left) / 2;
 
-            while (right > middle || left < middle)
+            while (left <= right)
             {
                 while (array[left].CompareTo(array[middle]) < 0)
                 {
@@ -31,15 +31,17 @@ namespace SortingLab.Sorters
                 if (left <= right)
                 {
                     (array[left], array[right]) = (array[right], array[left]);
+                    left++;
+                    right--;
                 }
             }
-            if (left - bottom > 1)
+            if (bottom < right)
             {
-                QuickSort(array, bottom, left);
+                QuickSort(array, bottom, right);
             }
-            if (top - right > 1)
+            if (top > left)
             {
-                QuickSort(array, right, top);
+                QuickSort(array, left, top);
             }
 
             return array;

@@ -20,7 +20,7 @@ namespace SortingLab
                     {
                         var result = Benchmark.Benchmark.Run(file,
                                                              Console.OpenStandardOutput(),
-                                                             new QuickSorter<string>(),
+                                                             new BubbleSorter<string>(), 
                                                              count);
                         resultFile.StreamWriteLine($"{count} : {result}");
                     }
